@@ -55,7 +55,8 @@ unsigned int createShaderProgram(const std::string& vertexSource, const std::str
 
     return shaderProgram;
 }
-
+float time1 = 0.0f;
+float width = 800.0f, height = 600.0f;
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
@@ -82,29 +83,18 @@ int main() {
         return -1;
     }
 
-    // Load and compile shaders
-    std::string vertexShaderSource =
-        "#version 330 core\n"
-        "layout(location = 0) in vec3 aPos;\n"
-        "void main() {\n"
-        "    gl_Position = vec4(aPos, 1.0);\n"
-        "}\n";
-
-    std::string fragmentShaderSource =
-        "#version 330 core\n"
-        "out vec4 FragColor;\n"
-        "void main() {\n"
-        "    FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
-        "}\n";
-
+    // Load shaders (vertex_shader.glsl and fragment_shader.glsl)
+    std::string fragmentShaderSource = readShaderFile("C:\\Users\\tajso\\CLionProjects\\openGL_1\\src\\fragment_shader.glsl");
+    std::string vertexShaderSource = readShaderFile("C:\\Users\\tajso\\CLionProjects\\openGL_1\\src\\vertex_shader.glsl");
 
     unsigned int shaderProgram = createShaderProgram(vertexShaderSource, fragmentShaderSource);
 
-    // Define vertex data for a triangle
+    // Set up the VAO and VBO for a full-screen quad (use this to render the fractal)
     float vertices[] = {
-        0.0f,  0.5f, 0.0f,  // Vertex 1 (X, Y)
-       -0.5f, -0.5f, 0.0f,  // Vertex 2 (X, Y)
-        0.5f, -0.5f, 0.0f   // Vertex 3 (X, Y)
+        -1.0f, -1.0f, 0.0f,
+         1.0f, -1.0f, 0.0f,
+        -1.0f,  1.0f, 0.0f,
+         1.0f,  1.0f, 0.0f,
     };
 
     unsigned int VAO, VBO;
@@ -112,36 +102,30 @@ int main() {
     glGenBuffers(1, &VBO);
 
     glBindVertexArray(VAO);
-
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
-    glBindBuffer(GL_ARRAY_BUFFER, 0);
-    glBindVertexArray(0);
-
-    // Render loop
+    // Main loop
     while (!glfwWindowShouldClose(window)) {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // Use shader program
         glUseProgram(shaderProgram);
 
-        // Bind VAO and draw triangle
+        // Pass time and resolution uniforms
+        glUniform1f(glGetUniformLocation(shaderProgram, "u_time"), time1);
+        glUniform2f(glGetUniformLocation(shaderProgram, "u_resolution"), width, height);
+
         glBindVertexArray(VAO);
-        glDrawArrays(GL_TRIANGLES, 0, 3);
-        glBindVertexArray(0);
+        glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
-    }
 
-    glDeleteVertexArrays(1, &VAO);
-    glDeleteBuffers(1, &VBO);
-    glDeleteProgram(shaderProgram);
+        time1 += 0.01f; // Increment time for animation
+    }
 
     glfwTerminate();
     return 0;
