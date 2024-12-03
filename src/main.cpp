@@ -55,8 +55,16 @@ unsigned int createShaderProgram(const std::string& vertexSource, const std::str
 
     return shaderProgram;
 }
-float time1 = 0.0f;
-float width = 1500.0f, height = 1300.0f;
+
+// Global variables for mouse position
+double mouseX = 0.0, mouseY = 0.0;
+
+// GLFW callback to track mouse movement
+void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
+    mouseX = xpos;
+    mouseY = ypos;
+}
+
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
@@ -67,7 +75,7 @@ int main() {
     // Create a windowed OpenGL context
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Shader Example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(1000, 1000, "OpenGL Shader Example", nullptr, nullptr);
     if (!window) {
         std::cerr << "ERROR: GLFW Window Creation Failed\n";
         glfwTerminate();
@@ -83,13 +91,16 @@ int main() {
         return -1;
     }
 
-    // Load shaders (vertex_shader.glsl and fragment_shader.glsl)
+    // Set up mouse callback
+    glfwSetCursorPosCallback(window, mouse_callback);
+
+    // Load shaders
     std::string fragmentShaderSource = readShaderFile("C:\\Users\\tajso\\CLionProjects\\openGL_1\\src\\fragment_shader.glsl");
     std::string vertexShaderSource = readShaderFile("C:\\Users\\tajso\\CLionProjects\\openGL_1\\src\\vertex_shader.glsl");
 
     unsigned int shaderProgram = createShaderProgram(vertexShaderSource, fragmentShaderSource);
 
-    // Set up the VAO and VBO for a full-screen quad (use this to render the fractal)
+    // Set up the VAO and VBO for a full-screen quad
     float vertices[] = {
         -1.0f, -1.0f, 0.0f,
          1.0f, -1.0f, 0.0f,
@@ -108,15 +119,19 @@ int main() {
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
 
+    float time1 = 0.0f;
+    float width = 1000.0f, height = 1000.0f;
+
     // Main loop
     while (!glfwWindowShouldClose(window)) {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(shaderProgram);
 
-        // Pass time and resolution uniforms
+        // Pass uniforms
         glUniform1f(glGetUniformLocation(shaderProgram, "u_time"), time1);
         glUniform2f(glGetUniformLocation(shaderProgram, "u_resolution"), width, height);
+        glUniform2f(glGetUniformLocation(shaderProgram, "u_mouse"), mouseX, height - mouseY); // Flip Y-axis
 
         glBindVertexArray(VAO);
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
