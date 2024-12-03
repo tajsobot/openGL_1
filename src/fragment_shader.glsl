@@ -5,21 +5,17 @@ uniform vec2 u_resolution; // Resolution of the window
 uniform float u_time; // Time variable for animation (optional)
 
 vec3 mandelbrot(vec2 c) {
-    // Maximum number of iterations
-    const int maxIterations = 10000;
-
-    // Initialize complex number z to (0,0)
+    const int maxIterations = 100;
     vec2 z = vec2(0.0, 0.0);
     int iterations = 0;
 
-    // Iterate the Mandelbrot formula: z = z^2 + c
     for (int i = 0; i < maxIterations; i++) {
         float x = z.x * z.x - z.y * z.y + c.x;  // Re(z^2 + c)
         float y = 2.0 * z.x * z.y + c.y;        // Im(z^2 + c)
         z = vec2(x, y);
 
         // If the magnitude of z exceeds 2, it has escaped
-        if (length(z) > 2.0) {
+        if (length(z) > 10000.0) {
             break;
         }
 
@@ -28,7 +24,7 @@ vec3 mandelbrot(vec2 c) {
 
     // Return the color based on the number of iterations
     float norm = float(iterations) / float(maxIterations);
-    return vec3(norm, norm * 0.5, norm * 0.25); // Color gradient based on iterations
+    return vec3(norm, norm * 0.5, norm * 0.5); // Color gradient based on iterations
 }
 
 void main()

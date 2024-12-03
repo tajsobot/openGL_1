@@ -56,7 +56,7 @@ unsigned int createShaderProgram(const std::string& vertexSource, const std::str
     return shaderProgram;
 }
 float time1 = 0.0f;
-float width = 800.0f, height = 600.0f;
+float width = 1500.0f, height = 1300.0f;
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
@@ -67,12 +67,14 @@ int main() {
     // Create a windowed OpenGL context
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    GLFWwindow* window = glfwCreateWindow(800, 600, "OpenGL Shader Example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Shader Example", nullptr, nullptr);
     if (!window) {
         std::cerr << "ERROR: GLFW Window Creation Failed\n";
         glfwTerminate();
         return -1;
     }
+
+
 
     glfwMakeContextCurrent(window);
     glfwSwapInterval(1);

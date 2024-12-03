@@ -4,5 +4,5 @@ layout(location = 0) in vec3 aPos; // Vertex position
 
 void main()
 {
-    gl_Position = vec4(aPos, 1.0); // Pass through the vertex positions
+    gl_Position = vec4(aPos, 0.5); // Pass through the vertex positions
 }
