@@ -139,7 +139,7 @@ int main() {
         glfwSwapBuffers(window);
         glfwPollEvents();
 
-        time1 += 0.01f; // Increment time for animation
+        time1 += 0.001f; // Increment time for animation
     }
 
     glfwTerminate();
