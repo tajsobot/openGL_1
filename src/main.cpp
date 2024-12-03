@@ -83,8 +83,20 @@ int main() {
     }
 
     // Load and compile shaders
-    std::string vertexShaderSource = readShaderFile("vertex_shader.glsl");
-    std::string fragmentShaderSource = readShaderFile("fragment_shader.glsl");
+    std::string vertexShaderSource =
+        "#version 330 core\n"
+        "layout(location = 0) in vec3 aPos;\n"
+        "void main() {\n"
+        "    gl_Position = vec4(aPos, 1.0);\n"
+        "}\n";
+
+    std::string fragmentShaderSource =
+        "#version 330 core\n"
+        "out vec4 FragColor;\n"
+        "void main() {\n"
+        "    FragColor = vec4(1.0, 0.0, 0.0, 1.0);\n"
+        "}\n";
+
 
     unsigned int shaderProgram = createShaderProgram(vertexShaderSource, fragmentShaderSource);
 
