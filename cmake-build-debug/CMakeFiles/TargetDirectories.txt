@@ -1,0 +1,3 @@
+C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug/CMakeFiles/openGL_1.dir
+C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug/CMakeFiles/rebuild_cache.dir
