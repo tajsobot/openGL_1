@@ -23,3 +23,5 @@ target_link_libraries(openGL_1 glfw OpenGL::GL glad)
 
 target_include_directories(openGL_1 PRIVATE libs/glfw/include)
 target_include_directories(openGL_1 PRIVATE libs/glad/include)
+
+target_link_libraries(openGL_1 glfw OpenGL::GL glad -static-libgcc -static-libstdc++)

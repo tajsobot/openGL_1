@@ -64,9 +64,9 @@ build CMakeFiles/openGL_1.dir/src/main.cpp.obj: CXX_COMPILER__openGL_1_unscanned
 #############################################
 # Link the executable openGL_1.exe
 
-build openGL_1.exe: CXX_EXECUTABLE_LINKER__openGL_1_Debug CMakeFiles/openGL_1.dir/src/main.cpp.obj | libs/glfw/src/libglfw3.a libglad.a || libglad.a libs/glfw/src/libglfw3.a
+build openGL_1.exe: CXX_EXECUTABLE_LINKER__openGL_1_Debug CMakeFiles/openGL_1.dir/src/main.cpp.obj | libs/glfw/src/libglfw3.a libglad.a libs/glfw/src/libglfw3.a libglad.a || libglad.a libs/glfw/src/libglfw3.a
   FLAGS = -g
-  LINK_LIBRARIES = libs/glfw/src/libglfw3.a  -lopengl32  libglad.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
+  LINK_LIBRARIES = libs/glfw/src/libglfw3.a  -lopengl32  libglad.a  libs/glfw/src/libglfw3.a  -lopengl32  libglad.a  -static-libgcc  -static-libstdc++  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\openGL_1.dir
   POST_BUILD = cd .
   PRE_LINK = cd .
