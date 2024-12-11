@@ -112,8 +112,8 @@ int main() {
     glfwSetCursorPosCallback(window, mouse_callback);
 
     // Load shaders
-    std::string fragmentShaderSource = readShaderFile(R"(C:\Users\tajso\CLionProjects\openGL_1\src\fragment_shader.glsl)");
-    std::string vertexShaderSource = readShaderFile(R"(C:\Users\tajso\CLionProjects\openGL_1\src\vertex_shader.glsl)");
+    std::string fragmentShaderSource = readShaderFile(R"(..\src\fragment_shader1.glsl)");
+    std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
     if (fragmentShaderSource.empty() || vertexShaderSource.empty()) {
         std::cerr << "ERROR: Shader source is empty. Check file paths!" << std::endl;
