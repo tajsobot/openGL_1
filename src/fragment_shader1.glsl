@@ -74,7 +74,7 @@ void main() {
     float pitch = (u_mouse.y / u_resolution.y - 0.5) * 3.14159;     // Vertical rotation
 
     vec3 forward = normalize(vec3(sin(yaw) * cos(pitch), sin(pitch), cos(yaw) * cos(pitch)));
-    vec3 right = normalize(cross(forward, vec3(0.0, 1.0, 0.0)));
+    vec3 right = normalize(cross(forward, vec3(0.0, 1.0 , 0.0)));
     vec3 up = cross(right, forward);
 
     vec3 rd = normalize(forward + right * uv.x + up * uv.y); // Ray direction
@@ -82,14 +82,14 @@ void main() {
     // Ray march to find the intersection distance
     float dist = rayMarch(ro, rd);
 
-    vec3 color = vec3(rd); // Background color
+    vec3 color = vec3(rd + vec3(0.6,0.6,0.6)); // Background color
 
     if (dist < 100.0) {
         vec3 hitPoint = ro + rd * dist;
         vec3 normal = getNormal(hitPoint);
-        vec3 lightDir = normalize(vec3(-0.5 * sin(u_time * 10.0), 0.0, -0.5 * cos(u_time * 10.0)));
-        float diff = max(dot(normal, lightDir), 0.0);
-        color = vec3(0.3, 0.5, 0.9) * diff;
+        vec3 lightDir = normalize(vec3(-0.5 * sin(u_time * 5.0), 0.7, -0.5 * cos(u_time * 5.0)));
+        float diff = max(dot(normal, lightDir), 0.3);
+        color = vec3(0.4, 0.3, 0.9) * diff;
     }
 
     FragColor = vec4(color, 1.0);
