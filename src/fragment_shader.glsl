@@ -8,12 +8,19 @@ uniform float u_time;      // Time (for animation)
 
 // Signed distance function for a sphere
 float sphereSDF(vec3 p, float r) {
-    return length(p) - r;
+    return length(sin(p)) - r;
+
 }
 
 // Signed distance function for a plane
 float planeSDF(vec3 p, vec3 normal, float d) {
     return dot(p, normal) + d;
+}
+
+float sdLink( vec3 p, float le, float r1, float r2 )
+{
+    vec3 q = vec3( p.x, max(abs(p.y)-le,0.0), p.z );
+    return length(vec2(length(q.xy)-r1,q.z)) - r2;
 }
 
 // Combine two SDFs with a union operator
@@ -23,9 +30,10 @@ float unionSDF(float d1, float d2) {
 
 // Main scene definition (combines objects)
 float sceneSDF(vec3 p) {
-    float sphere = sphereSDF(p - vec3(0.0, 0.0,10.0), abs(sin(u_time))*1.0);  // A sphere
-    float plane = planeSDF(p, vec3(0.0, 2.0, 0.0), 1.0);      // A horizontal plane
-    return unionSDF(sphere, plane);
+//    float sphere = sdLink(p - vec3(0.0, 0.0 ,40.0 - sin(u_time) *200), abs(sin(u_time))*20.0, 10.0, 3.0);  // A sphere
+    float sphere = sphereSDF(p - vec3(0.0, 0.0 ,40.0), abs(sin(u_time))*0.2);  // A sphere
+    float plane = planeSDF(p, vec3(0.0, 0.0, 0.0), 1.0);      // A horizontal plane
+    return sphere;
 }
 
 // Calculate the normal at a point using the gradient of the SDF
@@ -41,8 +49,8 @@ vec3 getNormal(vec3 p) {
 // Ray-marching function
 float rayMarch(vec3 ro, vec3 rd) {
     const float maxDist = 1000.0;
-    const float minDist = 0.001;
-    const int maxSteps = 256;
+    const float minDist = 0.0001;
+    const int maxSteps = 1000;
 
     float dist = 0.0;
     for (int i = 0; i < maxSteps; i++) {
@@ -61,7 +69,7 @@ void main() {
     uv.x *= u_resolution.x / u_resolution.y; // Correct aspect ratio
 
     // Calculate camera orientation based on mouse position
-    vec3 ro = vec3(0.0, 1.0, 5.0); // Camera position
+    vec3 ro = vec3(1.0 , 1.0, 0.0); // Camera position
     float yaw = (u_mouse.x / u_resolution.x - 0.5) * -2.0 * 3.14159; // Horizontal rotation
     float pitch = (u_mouse.y / u_resolution.y - 0.5) * 3.14159;     // Vertical rotation
 

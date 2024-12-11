@@ -163,7 +163,7 @@ int main() {
     glBindVertexArray(1);
 
     float time1 = 0.0f;
-    float width = 1920.0f, height = 1080.0f;
+    float width = 1000.0f, height = 1000.0f;
 
     using Clock = std::chrono::high_resolution_clock;
     auto previousTime = Clock::now();
