@@ -15,7 +15,8 @@ add_subdirectory(libs/glfw)
 include_directories(libs/glfw/include/GLFW)
 
 #glad
-add_library(glad STATIC src/glad.c)
+add_library(glad STATIC src/glad.c
+)
 target_include_directories(glad PUBLIC libs/glad/include)
 
 find_package(OpenGL REQUIRED)

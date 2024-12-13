@@ -6,6 +6,7 @@
 #include <fstream>
 #include <sstream>
 #include <thread> // For simulating a game loop
+#include <windows.h> // Required for the following declaration
 
 
 //naPORNo
@@ -74,11 +75,13 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     mouseY = ypos;
 }
 
+
+extern "C" {
+    __attribute__((dllexport)) DWORD NvOptimusEnablement = 0x00000001; // NVIDIA GPUs
+}
+
+
 int main() {
-
-    std::cout << "Renderer: " << GL_RENDERER << std::endl;
-    std::cout << "OpenGL Version: " << GL_VERSION << std::endl;
-
     // Initialize GLFW
     if (!glfwInit()) {
         std::cerr << "ERROR: GLFW Initialization Failed\n";
@@ -89,9 +92,10 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
+    float width = 800.0f, height = 800.0f;
 
     // Create a windowed OpenGL context
-    GLFWwindow* window = glfwCreateWindow(1000, 1000, "OpenGL Shader Example", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Shader Example", nullptr, nullptr);
     if (!window) {
         std::cerr << "ERROR: GLFW Window Creation Failed\n";
         glfwTerminate();
@@ -112,7 +116,7 @@ int main() {
     glfwSetCursorPosCallback(window, mouse_callback);
 
     // Load shaders
-    std::string fragmentShaderSource = readShaderFile(R"(..\src\fragment_shader1.glsl)");
+    std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
     if (fragmentShaderSource.empty() || vertexShaderSource.empty()) {
@@ -163,7 +167,6 @@ int main() {
     glBindVertexArray(1);
 
     float time1 = 0.0f;
-    float width = 1000.0f, height = 1000.0f;
 
     using Clock = std::chrono::high_resolution_clock;
     auto previousTime = Clock::now();

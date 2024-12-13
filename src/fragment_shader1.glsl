@@ -9,7 +9,6 @@ uniform float u_time;      // Time (for animation)
 // Signed distance function for a sphere
 float sphereSDF(vec3 p, float r) {
     return length(sin(p)) - r;
-
 }
 
 // Signed distance function for a plane
@@ -31,26 +30,26 @@ float unionSDF(float d1, float d2) {
 // Main scene definition (combines objects)
 float sceneSDF(vec3 p) {
 //    float sphere = sdLink(p - vec3(0.0, 0.0 ,40.0 - sin(u_time) *200), abs(sin(u_time))*20.0, 10.0, 3.0);  // A sphere
-    float sphere = sphereSDF(p - vec3(0.0, 0.0 ,40.0), abs(sin(u_time))*0.2);  // A sphere
+    float sphere = sphereSDF(p - vec3(0.0, 0.0 ,0.0), abs(sin(u_time))*0.2);  // A sphere
     float plane = planeSDF(p, vec3(0.0, 0.0, 0.0), 1.0);      // A horizontal plane
     return sphere;
 }
 
 // Calculate the normal at a point using the gradient of the SDF
 vec3 getNormal(vec3 p) {
-    const float eps = 0.001;
+    const float eps = 0.0001;
     return normalize(vec3(
     sceneSDF(p + vec3(eps, 0.0, 0.0)) - sceneSDF(p - vec3(eps, 0.0, 0.0)),
-    sceneSDF(p + vec3(0.0, eps, 0.0)) - sceneSDF(p - vec3(0.0, eps, 0.0)),
+    sceneSDF(p + vec3(0.0, eps , 0.0)) - sceneSDF(p - vec3(0.0, eps, 0.0)),
     sceneSDF(p + vec3(0.0, 0.0, eps)) - sceneSDF(p - vec3(0.0, 0.0, eps))
     ));
 }
 
 // Ray-marching function
 float rayMarch(vec3 ro, vec3 rd) {
-    const float maxDist = 1000.0;
-    const float minDist = 0.0001;
-    const int maxSteps = 1000;
+    const float maxDist = 100.0;
+    const float minDist = 0.01;
+    const int maxSteps = 100;
 
     float dist = 0.0;
     for (int i = 0; i < maxSteps; i++) {
@@ -69,7 +68,7 @@ void main() {
     uv.x *= u_resolution.x / u_resolution.y; // Correct aspect ratio
 
     // Calculate camera orientation based on mouse position
-    vec3 ro = vec3(1.0 , 1.0, 0.0); // Camera position
+    vec3 ro = vec3(1.0 , 0.0, 0.0); // Camera position
     float yaw = (u_mouse.x / u_resolution.x - 0.5) * -2.0 * 3.14159; // Horizontal rotation
     float pitch = (u_mouse.y / u_resolution.y - 0.5) * 3.14159;     // Vertical rotation
 
