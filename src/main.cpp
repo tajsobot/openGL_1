@@ -120,16 +120,22 @@ int main() {
 
     // Load shaders
     // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource = readShaderFile(R"(..\src\fragment_shader1.glsl)");
+    std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader1.glsl)");
+    std::string fragmentShaderSource2 = readShaderFile(R"(..\src\my_marcher.glsl)");
+    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader2.glsl)");
+
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
-    if (fragmentShaderSource.empty() || vertexShaderSource.empty()) {
+    if (fragmentShaderSource1.empty() || fragmentShaderSource2.empty() ||vertexShaderSource.empty()) {
         std::cerr << "ERROR: Shader source is empty. Check file paths!" << std::endl;
         glfwTerminate();
         return -1;
     }
 
-    unsigned int shaderProgram = createShaderProgram(vertexShaderSource, fragmentShaderSource);
+    unsigned int shaderProgram1 = createShaderProgram(vertexShaderSource, fragmentShaderSource1);
+    unsigned int shaderProgram2 = createShaderProgram(vertexShaderSource, fragmentShaderSource2);
+    unsigned int shaderProgram3 = createShaderProgram(vertexShaderSource, fragmentShaderSource3);
+
 
     // Set up the VAO and VBO for a full-screen quad
     float vertices[] = {
@@ -176,9 +182,22 @@ int main() {
     auto previousTime = Clock::now();
 
     float deltaTime = 0.0f;
+    float timeCountTo1 = 0.0f;
 
+    unsigned int activeProgram = shaderProgram1;
     // Main loop
     while (!glfwWindowShouldClose(window)) {
+
+        if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
+            activeProgram = shaderProgram1; // Switch to first shader
+        }
+        if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
+            activeProgram = shaderProgram2; // Switch to second shader
+        }
+        if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
+            activeProgram = shaderProgram3; // Switch to second shader
+        }
+
         int width, height;
         auto currentTime = Clock::now();
         deltaTime = std::chrono::duration<float>(currentTime - previousTime).count();
@@ -188,12 +207,12 @@ int main() {
 
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(shaderProgram);
+        glUseProgram(activeProgram);
 
         // Pass uniforms
-        glUniform1f(glGetUniformLocation(shaderProgram, "u_time"), time1);
-        glUniform2f(glGetUniformLocation(shaderProgram, "u_resolution"), width, height);
-        glUniform2f(glGetUniformLocation(shaderProgram, "u_mouse"), mouseX, height - mouseY); // Flip Y-axis
+        glUniform1f(glGetUniformLocation(activeProgram, "u_time"), time1);
+        glUniform2f(glGetUniformLocation(activeProgram, "u_resolution"), width, height);
+        glUniform2f(glGetUniformLocation(activeProgram, "u_mouse"), mouseX, height - mouseY); // Flip Y-axis
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
@@ -201,16 +220,19 @@ int main() {
         glfwSwapBuffers(window);
         glfwPollEvents();
 
-        std::cout << deltaTime*1000 <<" ms" << std::endl;
-
-        time1 += 0.1 * deltaTime; // Increment time for animation
+        if (timeCountTo1 >= 1.0f) {
+            std::cout << 1/deltaTime <<" FPS" << std::endl;
+            timeCountTo1 = 0.0f;
+        }
+        time1 += 0.1f * deltaTime; // Increment time for animation
+        timeCountTo1 += deltaTime;
     }
 
     // Clean up
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
     glDeleteBuffers(1, &EBO);
-    glDeleteProgram(shaderProgram);
+    glDeleteProgram(activeProgram);
 
     glfwTerminate();
     return 0;

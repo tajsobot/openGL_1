@@ -96,13 +96,18 @@ float udQuad( vec3 p, vec3 a, vec3 b, vec3 c, vec3 d )
     :
     dot(nor,pa)*dot(nor,pa)/dot2(nor) );
 }
+float sdTorus( vec3 p, vec2 t )
+{
+    vec2 q = vec2(length(p.xz)-t.x,p.y);
+    return length(q)-t.y;
+}
 
 //final scene
 vec2 scene(vec3 pos) {
     float sphere1 = SDFsphere(translate(pos, vec3(sin(u_time) * 3.0, -1.0 , cos(u_time) * 3.0)), 1.0);
     float octa = sdOctahedron(
         translate(
-            rotate(pos, u_time* 50, vec3(0.0,1.0,0.0)), vec3(0.0, abs(tan(u_time* 4.0)) * 0.5,0.0)
+            rotate(pos, u_time* 10, vec3(0.0,1.0,0.0)), vec3(0.0, abs(tan(u_time* 4.0)) * 0.5,0.0)
         )
         ,abs(cos(u_time* 4.0)) * 2.0); //velikost
     vec3 p1 = vec3(-5, -2, -5);
@@ -111,12 +116,13 @@ vec2 scene(vec3 pos) {
     vec3 p4 = vec3(-5, -2 , 5);
     float quad = udQuad(pos, p1, p2, p3, p4);
 
-
+    float torus = sdTorus( translate(pos, vec3(2.5,-1.0,2.5)), vec2(2.0,0.2));
 
     //materijali
     vec2 res = vec2(sphere1, 1.0);
     if (octa < res.x) res = vec2(octa, 2.0);
-    if (quad < res.x) res = vec2(quad, 3.0);
+    if (quad < res.x) res = vec2(quad, 4.0);
+    if (torus < res.x) res = vec2(torus, 3.0);
     return res;
 }
 
@@ -124,6 +130,7 @@ vec2 scene(vec3 pos) {
 Material getMaterial(float id) {
     if (id < 1.5) return createMaterial(vec3(0.8, 0.3, 0.2), 1., 1.0);
     if (id < 2.5) return createMaterial(vec3(0.2, 0.8, 0.3), 1., 1.0);
+    if (id < 3.5) return createMaterial(vec3(0.6, 0.6, 0.0), 1., 1.0);
     return createMaterial(vec3(0.2, 0.3, 0.8), 0.4, 1.0);
 }
 
@@ -142,7 +149,7 @@ vec3 getNormal(vec3 p) {
 }
 
 //RAYMARCHER:
-#define MAX_STEPS 10
+#define MAX_STEPS 1000
 #define MAX_DIST 1000.0
 #define SURFACE_DIST 0.01
 #define MAX_REFLECT 10
