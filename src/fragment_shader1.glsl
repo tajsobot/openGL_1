@@ -68,7 +68,7 @@ void main() {
     uv.x *= u_resolution.x / u_resolution.y; // Correct aspect ratio
 
     // Calculate camera orientation based on mouse position
-    vec3 ro = vec3(1.0 , 0.0, 0.0); // Camera position
+    vec3 ro = vec3(sin(u_time*10) * 20 , sin(u_time*3) * 20 , cos(u_time*10) * 20); // Camera position
     float yaw = (u_mouse.x / u_resolution.x - 0.5) * -2.0 * 3.14159; // Horizontal rotation
     float pitch = (u_mouse.y / u_resolution.y - 0.5) * 3.14159;     // Vertical rotation
 

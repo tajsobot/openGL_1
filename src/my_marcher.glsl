@@ -142,7 +142,7 @@ vec3 getNormal(vec3 p) {
 }
 
 //RAYMARCHER:
-#define MAX_STEPS 1000
+#define MAX_STEPS 10
 #define MAX_DIST 1000.0
 #define SURFACE_DIST 0.01
 #define MAX_REFLECT 10

@@ -8,8 +8,10 @@
 #include <thread> // For simulating a game loop
 #include <windows.h> // Required for the following declaration
 
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
 
-//naPORNo
 
 // Function to read a file's content
 std::string readShaderFile(const std::string& filepath) {
@@ -92,7 +94,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    float width = 1200.0f, height = 900.0f;
+    float width = 1800.0f, height = 1300.0f;
 
     // Create a windowed OpenGL context
     GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Shader Example", nullptr, nullptr);
@@ -103,7 +105,8 @@ int main() {
     }
 
     glfwMakeContextCurrent(window);
-    glfwSwapInterval(100); // Disable V-Sync
+    glfwSwapInterval(0); // Disable V-Sync
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     // Load OpenGL functions with GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -117,7 +120,7 @@ int main() {
 
     // Load shaders
     // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
+    std::string fragmentShaderSource = readShaderFile(R"(..\src\fragment_shader1.glsl)");
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
     if (fragmentShaderSource.empty() || vertexShaderSource.empty()) {
@@ -176,9 +179,12 @@ int main() {
 
     // Main loop
     while (!glfwWindowShouldClose(window)) {
+        int width, height;
         auto currentTime = Clock::now();
         deltaTime = std::chrono::duration<float>(currentTime - previousTime).count();
         previousTime = currentTime;
+
+        glfwGetFramebufferSize(window, &width, &height);
 
         glClear(GL_COLOR_BUFFER_BIT);
 
