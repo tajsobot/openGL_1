@@ -92,7 +92,7 @@ int main() {
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
     glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    float width = 800.0f, height = 800.0f;
+    float width = 1200.0f, height = 900.0f;
 
     // Create a windowed OpenGL context
     GLFWwindow* window = glfwCreateWindow(width, height, "OpenGL Shader Example", nullptr, nullptr);
@@ -103,7 +103,7 @@ int main() {
     }
 
     glfwMakeContextCurrent(window);
-    glfwSwapInterval(0); // Disable V-Sync
+    glfwSwapInterval(100); // Disable V-Sync
 
     // Load OpenGL functions with GLAD
     if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
@@ -116,6 +116,7 @@ int main() {
     glfwSetCursorPosCallback(window, mouse_callback);
 
     // Load shaders
+    // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
     std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
