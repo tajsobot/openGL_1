@@ -132,15 +132,15 @@
 			[
 				{
 					"backtrace" : 7,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/src"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/src"
 				},
 				{
 					"backtrace" : 8,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/src"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/src"
 				}
 			],
 			"language" : "C",

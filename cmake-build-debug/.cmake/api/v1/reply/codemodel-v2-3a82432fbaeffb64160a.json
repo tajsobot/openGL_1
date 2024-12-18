@@ -115,21 +115,21 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "glad::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-glad-Debug-376371f60865d7cc6577.json",
+					"jsonFile" : "target-glad-Debug-025bb2962e95d184c5df.json",
 					"name" : "glad",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 2,
 					"id" : "glfw::@9d94ad66e13f8aab41f7",
-					"jsonFile" : "target-glfw-Debug-76526268bf8c6541f3d2.json",
+					"jsonFile" : "target-glfw-Debug-10fd7a22cc9655125208.json",
 					"name" : "glfw",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "openGL_1::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-openGL_1-Debug-3fbbb4ebc96377f0a47f.json",
+					"jsonFile" : "target-openGL_1-Debug-fe8ab8507929542a3ebf.json",
 					"name" : "openGL_1",
 					"projectIndex" : 0
 				},
@@ -153,8 +153,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug",
-		"source" : "C:/Users/Sobot/CLionProjects/openGL_1"
+		"build" : "C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug",
+		"source" : "C:/Users/tajso/CLionProjects/openGL_1"
 	},
 	"version" : 
 	{

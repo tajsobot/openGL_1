@@ -1,5 +1,5 @@
 CMakeFiles/glad.dir/src/glad.c.obj: \
- C:\Users\Sobot\CLionProjects\openGL_1\src\glad.c \
+ C:\Users\tajso\CLionProjects\openGL_1\src\glad.c \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
@@ -23,8 +23,8 @@ CMakeFiles/glad.dir/src/glad.c.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/errno.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/string.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/sec_api/string_s.h \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glad/include/glad/glad.h \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glad/include/KHR/khrplatform.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glad/include/glad/glad.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glad/include/KHR/khrplatform.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \

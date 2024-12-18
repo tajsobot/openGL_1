@@ -52,10 +52,10 @@ RM = "C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = C:\Users\Sobot\CLionProjects\openGL_1
+CMAKE_SOURCE_DIR = C:\Users\tajso\CLionProjects\openGL_1
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug
+CMAKE_BINARY_DIR = C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug
 
 # Utility rule file for update_mappings.
 
@@ -66,8 +66,8 @@ include libs/glfw/src/CMakeFiles/update_mappings.dir/compiler_depend.make
 include libs/glfw/src/CMakeFiles/update_mappings.dir/progress.make
 
 libs/glfw/src/CMakeFiles/update_mappings:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /d C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src && "C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -P C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
+	cd /d C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src && "C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -P C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 update_mappings: libs/glfw/src/CMakeFiles/update_mappings
 update_mappings: libs/glfw/src/CMakeFiles/update_mappings.dir/build.make
@@ -78,10 +78,10 @@ libs/glfw/src/CMakeFiles/update_mappings.dir/build: update_mappings
 .PHONY : libs/glfw/src/CMakeFiles/update_mappings.dir/build
 
 libs/glfw/src/CMakeFiles/update_mappings.dir/clean:
-	cd /d C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug\libs\glfw\src && $(CMAKE_COMMAND) -P CMakeFiles\update_mappings.dir\cmake_clean.cmake
+	cd /d C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug\libs\glfw\src && $(CMAKE_COMMAND) -P CMakeFiles\update_mappings.dir\cmake_clean.cmake
 .PHONY : libs/glfw/src/CMakeFiles/update_mappings.dir/clean
 
 libs/glfw/src/CMakeFiles/update_mappings.dir/depend:
-	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\Sobot\CLionProjects\openGL_1 C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug\libs\glfw\src C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug\libs\glfw\src\CMakeFiles\update_mappings.dir\DependInfo.cmake "--color=$(COLOR)"
+	$(CMAKE_COMMAND) -E cmake_depends "MinGW Makefiles" C:\Users\tajso\CLionProjects\openGL_1 C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug\libs\glfw\src C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug\libs\glfw\src\CMakeFiles\update_mappings.dir\DependInfo.cmake "--color=$(COLOR)"
 .PHONY : libs/glfw/src/CMakeFiles/update_mappings.dir/depend
 

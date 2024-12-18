@@ -57,11 +57,11 @@
 			[
 				{
 					"backtrace" : 2,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include/GLFW"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include/GLFW"
 				},
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glad/include"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glad/include"
 				}
 			],
 			"language" : "C",

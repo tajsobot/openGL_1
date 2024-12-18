@@ -1,7 +1,7 @@
 libs/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\win32_init.c \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\internal.h \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include/GLFW/glfw3.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\win32_init.c \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\internal.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include/GLFW/glfw3.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
@@ -13,9 +13,9 @@ libs/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdint.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/stdint.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\platform.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\null_platform.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\win32_platform.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\platform.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\null_platform.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\win32_platform.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/wctype.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/windows.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/sdkddkver.h \
@@ -236,8 +236,8 @@ libs/glfw/src/CMakeFiles/glfw.dir/win32_init.c.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/_mingw_dxhelper.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/xinput.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/x86_64-w64-mingw32/include/dbt.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\null_joystick.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\win32_joystick.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\win32_thread.h \
- C:\Users\Sobot\CLionProjects\openGL_1\libs\glfw\src\win32_time.h \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include/GLFW/glfw3native.h
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\null_joystick.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\win32_joystick.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\win32_thread.h \
+ C:\Users\tajso\CLionProjects\openGL_1\libs\glfw\src\win32_time.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include/GLFW/glfw3native.h

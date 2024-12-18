@@ -121,8 +121,8 @@ int main() {
     // Load shaders
     // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
     std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader1.glsl)");
-    std::string fragmentShaderSource2 = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader2.glsl)");
+    std::string fragmentShaderSource2 = readShaderFile(R"(..\src\fragment_shader2.glsl)");
+    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader3.glsl)");
 
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
@@ -185,6 +185,7 @@ int main() {
     float timeCountTo1 = 0.0f;
 
     unsigned int activeProgram = shaderProgram1;
+    int frameCount = 0;
     // Main loop
     while (!glfwWindowShouldClose(window)) {
 
@@ -219,9 +220,12 @@ int main() {
 
         glfwSwapBuffers(window);
         glfwPollEvents();
+        frameCount++;
 
         if (timeCountTo1 >= 1.0f) {
-            std::cout << 1/deltaTime <<" FPS" << std::endl;
+
+            std::cout << frameCount <<" FPS" << std::endl;
+            frameCount = 0;
             timeCountTo1 = 0.0f;
         }
         time1 += 0.1f * deltaTime; // Increment time for animation

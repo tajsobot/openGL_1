@@ -78,15 +78,15 @@
 			[
 				{
 					"backtrace" : 4,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include/GLFW"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include/GLFW"
 				},
 				{
 					"backtrace" : 5,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include"
 				},
 				{
 					"backtrace" : 6,
-					"path" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glad/include"
+					"path" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glad/include"
 				}
 			],
 			"language" : "CXX",
@@ -108,11 +108,11 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "glfw::@9d94ad66e13f8aab41f7"
+			"id" : "glad::@6890427a1f51a3e7e1df"
 		},
 		{
 			"backtrace" : 2,
-			"id" : "glad::@6890427a1f51a3e7e1df"
+			"id" : "glfw::@9d94ad66e13f8aab41f7"
 		}
 	],
 	"id" : "openGL_1::@6890427a1f51a3e7e1df",

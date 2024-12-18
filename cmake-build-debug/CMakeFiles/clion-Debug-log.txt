@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\Sobot\CLionProjects\openGL_1 -B C:\Users\Sobot\CLionProjects\openGL_1\cmake-build-debug
+"C:\Program Files\JetBrains\CLion 2024.3\bin\cmake\win\x64\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "MinGW Makefiles" -S C:\Users\tajso\CLionProjects\openGL_1 -B C:\Users\tajso\CLionProjects\openGL_1\cmake-build-debug
 -- The C compiler identification is GNU 13.1.0
 -- The CXX compiler identification is GNU 13.1.0
 -- Detecting C compiler ABI info
@@ -22,6 +22,6 @@
 -- Could NOT find Doxygen (missing: DOXYGEN_EXECUTABLE) 
 -- Documentation generation requires Doxygen 1.9.8 or later
 -- Found OpenGL: opengl32
--- Configuring done (2.6s)
--- Generating done (0.1s)
--- Build files have been written to: C:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug
+-- Configuring done (6.7s)
+-- Generating done (0.7s)
+-- Build files have been written to: C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug

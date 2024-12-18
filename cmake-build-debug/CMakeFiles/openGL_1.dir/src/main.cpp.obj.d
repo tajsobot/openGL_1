@@ -1,5 +1,5 @@
 CMakeFiles/openGL_1.dir/src/main.cpp.obj: \
- C:\Users\Sobot\CLionProjects\openGL_1\src\main.cpp \
+ C:\Users\tajso\CLionProjects\openGL_1\src\main.cpp \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/chrono \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/requires_hosted.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++config.h \
@@ -196,9 +196,9 @@ CMakeFiles/openGL_1.dir/src/main.cpp.obj: \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/variant \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/ranges_algobase.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glad/include/glad/glad.h \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glad/include/KHR/khrplatform.h \
- C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/include/GLFW/glfw3.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glad/include/glad/glad.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glad/include/KHR/khrplatform.h \
+ C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/include/GLFW/glfw3.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/fstream \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/basic_file.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.3/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/c++io.h \

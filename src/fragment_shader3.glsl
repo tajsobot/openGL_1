@@ -106,10 +106,10 @@ float sdTorus( vec3 p, vec2 t )
 vec2 scene(vec3 pos) {
     float sphere1 = SDFsphere(translate(pos, vec3(sin(u_time) * 3.0, -1.0 , cos(u_time) * 3.0)), 1.0);
     float octa = sdOctahedron(
-        translate(
-            rotate(pos, u_time* 10, vec3(0.0,1.0,0.0)), vec3(0.0, abs(tan(u_time* 4.0)) * 0.5,0.0)
-        )
-        ,abs(cos(u_time* 4.0)) * 2.0); //velikost
+    translate(
+    rotate(pos, u_time* 10, vec3(0.0,1.0,0.0)), vec3(0.0, abs(tan(u_time* 4.0)) * 0.5,0.0)
+    )
+    ,abs(cos(u_time* 4.0)) * 2.0); //velikost
     vec3 p1 = vec3(-5, -2, -5);
     vec3 p2 = vec3(5, -2 , -5); // pri kameri
     vec3 p3 = vec3(5, -2, 5); //levo

@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw/docs
+# Install script for directory: C:/Users/tajso/CLionProjects/openGL_1/libs/glfw/docs
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

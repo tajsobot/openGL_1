@@ -67,7 +67,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug"
+			"value" : "c:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -571,7 +571,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -655,7 +655,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/Sobot/CLionProjects/openGL_1"
+			"value" : "C:/Users/tajso/CLionProjects/openGL_1"
 		},
 		{
 			"name" : "CMAKE_INSTALL_BINDIR",
@@ -1659,7 +1659,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug/libs/glfw"
+			"value" : "C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug/libs/glfw"
 		},
 		{
 			"name" : "GLFW_BUILD_DOCS",
@@ -1779,7 +1779,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Sobot/CLionProjects/openGL_1/libs/glfw"
+			"value" : "C:/Users/tajso/CLionProjects/openGL_1/libs/glfw"
 		},
 		{
 			"name" : "GLFW_USE_HYBRID_HPG",
@@ -1871,7 +1871,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Sobot/CLionProjects/openGL_1/cmake-build-debug"
+			"value" : "C:/Users/tajso/CLionProjects/openGL_1/cmake-build-debug"
 		},
 		{
 			"name" : "openGL_1_IS_TOP_LEVEL",
@@ -1895,7 +1895,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/Sobot/CLionProjects/openGL_1"
+			"value" : "C:/Users/tajso/CLionProjects/openGL_1"
 		}
 	],
 	"kind" : "cache",
