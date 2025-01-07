@@ -13,7 +13,7 @@ void main() {
 
     float t = u_time;
     float animT = abs(sin(u_time * 0.01));
-    float drawTime = min(1000, floor(u_time * 30));
+    float drawTime = min(200, floor(u_time * u_time * 30));
 
     float r_start = 3.5;
     float r_end = 5.0;
@@ -29,16 +29,17 @@ void main() {
             sub_uv.y += float(j) * subpixel_step / u_resolution.y;
 
             float r = mix(r_start, r_end, sub_uv.x);
-            r = mix(mouse_norm.y*3.0 + 1.0, mouse_norm.x * 3.0 + 1.0, sub_uv.x); // odkomentiraj za kontrolo miske
+            r = mix(mix(0.0, 4.0, mouse_norm.y), mix(2.3, 4.0, mouse_norm.x) , sub_uv.x); // odkomentiraj za kontrolo miske
 
-//            float x = animT; //zacetna vrednost lahko tudi druga
             float x = 0.5;
-            for (int k = 0; k < int(drawTime) * 2; k++) { //loop za biferkacijski diagram
-                x = r * x * (1.0 - x);
-                if (k > int(drawTime)) {
-                    if (abs(x - sub_uv.y) < 0.0005) {
+            x = animT; //zacetna vrednost lahko tudi druga
 
-                        color_sum += vec3(i/subpixels, j/subpixels, 0.0); // Red for points in the bifurcation diagram
+            for (float k = 0; k < drawTime * 2; k++) { //loop za biferkacijski diagram
+                x = r * x * (1.0 - x);
+                if (k > drawTime) {
+                    if (abs(x - sub_uv.y) < 0.0003) {
+                        color_sum += vec3(0.6, 0.6, 2.3);
+
                         break;
                     }
                 }
