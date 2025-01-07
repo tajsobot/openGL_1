@@ -120,9 +120,11 @@ int main() {
 
     // Load shaders
     // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader1.glsl)");
+    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader1.glsl)");
     std::string fragmentShaderSource2 = readShaderFile(R"(..\src\fragment_shader2.glsl)");
-    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader3.glsl)");
+    std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader3.glsl)");
+    std::string fragmentShaderSource4 = readShaderFile(R"(..\src\fragment_shader4.glsl)");
+
 
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
 
@@ -135,6 +137,8 @@ int main() {
     unsigned int shaderProgram1 = createShaderProgram(vertexShaderSource, fragmentShaderSource1);
     unsigned int shaderProgram2 = createShaderProgram(vertexShaderSource, fragmentShaderSource2);
     unsigned int shaderProgram3 = createShaderProgram(vertexShaderSource, fragmentShaderSource3);
+    unsigned int shaderProgram4 = createShaderProgram(vertexShaderSource, fragmentShaderSource4);
+
 
 
     // Set up the VAO and VBO for a full-screen quad
@@ -197,6 +201,9 @@ int main() {
         }
         if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
             activeProgram = shaderProgram3; // Switch to second shader
+        }
+        if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
+            activeProgram = shaderProgram4; // Switch to second shader
         }
 
         int width, height;
