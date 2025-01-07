@@ -12,7 +12,7 @@ void main() {
     vec2 mouse_norm = u_mouse / u_resolution;
 
     float t = u_time;
-    float animT = abs(mix(.001, .0001, u_time));
+    float animT = abs(sin(u_time));
     float drawTime = min(200, floor(u_time * u_time * 30));
 
     float r_start = 3.5;
@@ -32,13 +32,14 @@ void main() {
             r = mix(mix(0.0, 4.0, mouse_norm.y), mix(2.3, 4.0, mouse_norm.x) , sub_uv.x); // odkomentiraj za kontrolo miske
 
             float x = 0.5;
-            x = 0.3; //zacetna vrednost lahko tudi druga
+//            x = animT; //zacetna vrednost lahko tudi druga
 
             for (float k = 0; k < drawTime * 2; k++) { //loop za biferkacijski diagram
                 x = r * x * (1.0 - x);
                 if (k > drawTime) {
                     if (abs(x - sub_uv.y) < 0.0001) {
-                        color_sum += vec3(0.6, 0.6, 2.3);
+//                        color_sum += vec3(0.6 * animT, 0.6 * animT, 2.3 *animT);
+                        color_sum += vec3(abs(sin(u_time)), abs(cos(u_time)), abs(tan(u_time)));
 
                         break;
                     }
