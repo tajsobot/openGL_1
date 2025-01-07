@@ -120,10 +120,10 @@ int main() {
 
     // Load shaders
     // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader1.glsl)");
-    std::string fragmentShaderSource2 = readShaderFile(R"(..\src\fragment_shader2.glsl)");
-    std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader3.glsl)");
-    std::string fragmentShaderSource4 = readShaderFile(R"(..\src\fragment_shader4.glsl)");
+    std::string fragmentShaderSource4 = readShaderFile(R"(..\src\fragment_shader1.glsl)"); //spin
+    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader2.glsl)"); //reflections
+    std::string fragmentShaderSource2 = readShaderFile(R"(..\src\fragment_shader3.glsl)"); //biferkacijski prvi
+    std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader4.glsl)"); //biferkacijski bolsi
 
 
     std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
