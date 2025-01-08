@@ -12,8 +12,8 @@ void main() {
     vec2 mouse_norm = u_mouse / u_resolution;
 
     float t = u_time;
-    float animT = abs(sin(u_time));
-    float drawTime = min(200, floor(u_time * u_time * 30));
+    float animT = abs(sin(u_time * 0.001));
+    float drawTime = min(200, floor(u_time * u_time * 50));
 
     float r_start = 3.5;
     float r_end = 5.0;
@@ -32,14 +32,14 @@ void main() {
             r = mix(mix(0.0, 4.0, mouse_norm.y), mix(2.3, 4.0, mouse_norm.x) , sub_uv.x); // odkomentiraj za kontrolo miske
 
             float x = 0.5;
-//            x = animT; //zacetna vrednost lahko tudi druga
+            x = animT; //zacetna vrednost lahko tudi druga
 
             for (float k = 0; k < drawTime * 2; k++) { //loop za biferkacijski diagram
                 x = r * x * (1.0 - x);
                 if (k > drawTime) {
-                    if (abs(x - sub_uv.y) < 0.0001) {
+                    if (abs(x - sub_uv.y) < 0.00015) {
 //                        color_sum += vec3(0.6 * animT, 0.6 * animT, 2.3 *animT);
-                        color_sum += vec3(abs(sin(u_time)), abs(cos(u_time)), abs(tan(u_time)));
+                        color_sum += vec3(0.6, 0.6, 1.1);
 
                         break;
                     }
@@ -49,7 +49,5 @@ void main() {
     }
     //povprecje pixlov
     color_sum /= float(subpixels * subpixels);
-
-
     FragColor = vec4(color_sum, 1.0);
 }
