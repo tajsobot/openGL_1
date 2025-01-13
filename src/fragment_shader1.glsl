@@ -27,7 +27,6 @@ float unionSDF(float d1, float d2) {
     return min(d1, d2);
 }
 
-// Main scene definition (combines objects)
 float sceneSDF(vec3 p) {
 //    float sphere = sdLink(p - vec3(0.0, 0.0 ,40.0 - sin(u_time) *200), abs(sin(u_time))*20.0, 10.0, 3.0);  // A sphere
     float sphere = sphereSDF(p - vec3(0.0, 0.0 ,0.0), abs(sin(u_time))*0.2);  // A sphere
