@@ -6,11 +6,34 @@
 #include <fstream>
 #include <sstream>
 #include <thread> // For simulating a game loop
-#include <windows.h> // Required for the following declaration
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
+
+bool fullscreen = false;
+int windowedX, windowedY, windowedWidth, windowedHeight;
+
+void toggleFullscreen(GLFWwindow* window) {
+    fullscreen = !fullscreen;
+
+    if (fullscreen) {
+        // save window position and size
+        glfwGetWindowPos(window, &windowedX, &windowedY);
+        glfwGetWindowSize(window, &windowedWidth, &windowedHeight);
+
+        // get primary monitor and video mode
+        GLFWmonitor* monitor = glfwGetPrimaryMonitor();
+        const GLFWvidmode* mode = glfwGetVideoMode(monitor);
+
+        // go fullscreen
+        glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
+    } else {
+        // back to windowed mode
+        glfwSetWindowMonitor(window, nullptr, windowedX, windowedY, windowedWidth, windowedHeight, 0);
+    }
+}
+
 
 
 // Function to read a file's content
@@ -77,12 +100,6 @@ void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     mouseY = ypos;
 }
 
-
-extern "C" {
-    __attribute__((dllexport)) DWORD NvOptimusEnablement = 0x00000001; // NVIDIA GPUs
-}
-
-
 int main() {
     // Initialize GLFW
     if (!glfwInit()) {
@@ -120,13 +137,12 @@ int main() {
 
     // Load shaders
     // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource4 = readShaderFile(R"(..\src\fragment_shader1.glsl)"); //spin
-    std::string fragmentShaderSource3 = readShaderFile(R"(..\src\fragment_shader2.glsl)"); //reflections
-    std::string fragmentShaderSource2 = readShaderFile(R"(..\src\fragment_shader3.glsl)"); //biferkacijski prvi
-    std::string fragmentShaderSource1 = readShaderFile(R"(..\src\fragment_shader4.glsl)"); //biferkacijski bolsi
+    std::string fragmentShaderSource4 = readShaderFile(R"(../src/fragment_shader4.glsl)"); //spin
+    std::string fragmentShaderSource3 = readShaderFile(R"(../src/fragment_shader3.glsl)"); //reflections
+    std::string fragmentShaderSource2 = readShaderFile(R"(../src/fragment_shader2.glsl)"); //biferkacijski prvi
+    std::string fragmentShaderSource1 = readShaderFile(R"(../src/fragment_shader1.glsl)"); //biferkacijski bolsi
 
-
-    std::string vertexShaderSource = readShaderFile(R"(..\src\vertex_shader.glsl)");
+    std::string vertexShaderSource = readShaderFile(R"(../src/vertex_shader.glsl)");
 
     if (fragmentShaderSource1.empty() || fragmentShaderSource2.empty() ||vertexShaderSource.empty()) {
         std::cerr << "ERROR: Shader source is empty. Check file paths!" << std::endl;
@@ -138,8 +154,6 @@ int main() {
     unsigned int shaderProgram2 = createShaderProgram(vertexShaderSource, fragmentShaderSource2);
     unsigned int shaderProgram3 = createShaderProgram(vertexShaderSource, fragmentShaderSource3);
     unsigned int shaderProgram4 = createShaderProgram(vertexShaderSource, fragmentShaderSource4);
-
-
 
     // Set up the VAO and VBO for a full-screen quad
     float vertices[] = {
@@ -205,6 +219,16 @@ int main() {
         if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
             activeProgram = shaderProgram4; // Switch to second shader
         }
+            static bool pressed = false;
+
+        if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
+            if (!pressed) {
+                toggleFullscreen(window);
+                pressed = true;
+            }
+        } else {
+            pressed = false;
+        }
 
         int width, height;
         auto currentTime = Clock::now();
@@ -230,12 +254,11 @@ int main() {
         frameCount++;
 
         if (timeCountTo1 >= 1.0f) {
-
             std::cout << frameCount <<" FPS" << std::endl;
             frameCount = 0;
             timeCountTo1 = 0.0f;
         }
-        time1 += 0.1f * deltaTime; // Increment time for animation
+        time1 += 0.1f * deltaTime;
         timeCountTo1 += deltaTime;
     }
 
