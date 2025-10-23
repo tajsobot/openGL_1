@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/taj/CLionProjects/openGL_1/libs/glfw/include/GLFW -I/home/taj/CLionProjects/openGL_1/libs/glfw/include -I/home/taj/CLionProjects/openGL_1/libs/glad/include
+CXX_INCLUDES = -I"/home/doominik/security copy/openGL_1/libs/glfw/include/GLFW" -I"/home/doominik/security copy/openGL_1/libs/glfw/include" -I"/home/doominik/security copy/openGL_1/libs/glad/include"
 
 CXX_FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
 

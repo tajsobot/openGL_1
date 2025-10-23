@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/taj/CLionProjects/openGL_1/src/main.cpp" "CMakeFiles/openGL_1.dir/src/main.cpp.o" "gcc" "CMakeFiles/openGL_1.dir/src/main.cpp.o.d"
+  "/home/doominik/security copy/openGL_1/src/main.cpp" "CMakeFiles/openGL_1.dir/src/main.cpp.o" "gcc" "CMakeFiles/openGL_1.dir/src/main.cpp.o.d"
   "" "openGL_1" "gcc" "CMakeFiles/openGL_1.dir/link.d"
   )
 

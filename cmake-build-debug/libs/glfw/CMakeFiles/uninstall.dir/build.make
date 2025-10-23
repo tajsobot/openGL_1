@@ -44,19 +44,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /bin/cmake
+CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /bin/cmake -E rm -f
+RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/taj/CLionProjects/openGL_1
+CMAKE_SOURCE_DIR = "/home/doominik/security copy/openGL_1"
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/taj/CLionProjects/openGL_1/cmake-build-debug
+CMAKE_BINARY_DIR = "/home/doominik/security copy/openGL_1/cmake-build-debug"
 
 # Utility rule file for uninstall.
 
@@ -67,7 +67,7 @@ include libs/glfw/CMakeFiles/uninstall.dir/compiler_depend.make
 include libs/glfw/CMakeFiles/uninstall.dir/progress.make
 
 libs/glfw/CMakeFiles/uninstall:
-	cd /home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw && /bin/cmake -P /home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/cmake_uninstall.cmake
+	cd "/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw" && /snap/clion/385/bin/cmake/linux/x64/bin/cmake -P /home/doominik/security\ copy/openGL_1/cmake-build-debug/libs/glfw/cmake_uninstall.cmake
 
 libs/glfw/CMakeFiles/uninstall.dir/codegen:
 .PHONY : libs/glfw/CMakeFiles/uninstall.dir/codegen
@@ -81,10 +81,10 @@ libs/glfw/CMakeFiles/uninstall.dir/build: uninstall
 .PHONY : libs/glfw/CMakeFiles/uninstall.dir/build
 
 libs/glfw/CMakeFiles/uninstall.dir/clean:
-	cd /home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
+	cd "/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw" && $(CMAKE_COMMAND) -P CMakeFiles/uninstall.dir/cmake_clean.cmake
 .PHONY : libs/glfw/CMakeFiles/uninstall.dir/clean
 
 libs/glfw/CMakeFiles/uninstall.dir/depend:
-	cd /home/taj/CLionProjects/openGL_1/cmake-build-debug && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/taj/CLionProjects/openGL_1 /home/taj/CLionProjects/openGL_1/libs/glfw /home/taj/CLionProjects/openGL_1/cmake-build-debug /home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw /home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/CMakeFiles/uninstall.dir/DependInfo.cmake "--color=$(COLOR)"
+	cd "/home/doominik/security copy/openGL_1/cmake-build-debug" && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" "/home/doominik/security copy/openGL_1" "/home/doominik/security copy/openGL_1/libs/glfw" "/home/doominik/security copy/openGL_1/cmake-build-debug" "/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw" "/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw/CMakeFiles/uninstall.dir/DependInfo.cmake" "--color=$(COLOR)"
 .PHONY : libs/glfw/CMakeFiles/uninstall.dir/depend
 

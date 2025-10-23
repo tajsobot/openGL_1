@@ -191,7 +191,7 @@ int main() {
     float deltaTime = 0.0f;
     float timeCountTo1 = 0.0f;
 
-    unsigned int activeProgram = shaderPrograms[0];
+    unsigned int activeProgram = shaderPrograms[2];
     int frameCount = 0;
     // Main loop
     while (!glfwWindowShouldClose(window)) {

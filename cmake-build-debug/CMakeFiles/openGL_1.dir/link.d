@@ -1,50 +1,40 @@
 openGL_1: \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o \
   CMakeFiles/openGL_1.dir/src/main.cpp.o \
   libs/glfw/src/libglfw3.a \
   libglad.a \
   libs/glfw/src/libglfw3.a \
   libglad.a \
-  /usr/lib/librt.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a \
-  /usr/lib/libGLX.so \
-  /usr/lib/libOpenGL.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so \
-  /usr/lib/libm.so.6 \
-  /usr/lib/libmvec.so.1 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc_eh.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so \
-  /usr/lib/libc.so.6 \
-  /usr/lib/libc_nonshared.a \
-  /usr/lib/ld-linux-x86-64.so.2 \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc_eh.a \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o \
-  /usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o \
-  /usr/lib32/libGLdispatch.so.0 \
-  /usr/lib/libGLdispatch.so.0 \
-  /usr/lib32/libX11.so.6 \
-  /usr/lib/libX11.so.6 \
-  /usr/lib32/libxcb.so.1 \
-  /usr/lib/libxcb.so.1 \
-  /usr/lib32/libXau.so.6 \
-  /usr/lib/libXau.so.6 \
-  /usr/lib32/libXdmcp.so.6 \
-  /usr/lib/libXdmcp.so.6
+  /usr/lib/x86_64-linux-gnu/librt.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a \
+  /usr/lib/x86_64-linux-gnu/libGLX.so \
+  /usr/lib/x86_64-linux-gnu/libOpenGL.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so \
+  /lib/x86_64-linux-gnu/libm.so.6 \
+  /lib/x86_64-linux-gnu/libmvec.so.1 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_eh.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so \
+  /lib/x86_64-linux-gnu/libc.so.6 \
+  /usr/lib/x86_64-linux-gnu/libc_nonshared.a \
+  /lib64/ld-linux-x86-64.so.2 \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/libgcc_eh.a \
+  /usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o \
+  /usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/Scrt1.o:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/Scrt1.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crti.o:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crti.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtbeginS.o:
+/usr/lib/gcc/x86_64-linux-gnu/13/crtbeginS.o:
 
 CMakeFiles/openGL_1.dir/src/main.cpp.o:
 
@@ -56,66 +46,46 @@ libs/glfw/src/libglfw3.a:
 
 libglad.a:
 
-/usr/lib/librt.a:
+/usr/lib/x86_64-linux-gnu/librt.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libdl.a:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libdl.a:
 
-/usr/lib/libGLX.so:
+/usr/lib/x86_64-linux-gnu/libGLX.so:
 
-/usr/lib/libOpenGL.so:
+/usr/lib/x86_64-linux-gnu/libOpenGL.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libstdc++.a:
+/usr/lib/gcc/x86_64-linux-gnu/13/libstdc++.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libm.so:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libm.so:
 
-/usr/lib/libm.so.6:
+/lib/x86_64-linux-gnu/libm.so.6:
 
-/usr/lib/libmvec.so.1:
+/lib/x86_64-linux-gnu/libmvec.so.1:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc_eh.a:
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_eh.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/libc.so:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/libc.so:
 
-/usr/lib/libc.so.6:
+/lib/x86_64-linux-gnu/libc.so.6:
 
-/usr/lib/libc_nonshared.a:
+/usr/lib/x86_64-linux-gnu/libc_nonshared.a:
 
-/usr/lib/ld-linux-x86-64.so.2:
+/lib64/ld-linux-x86-64.so.2:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc.a:
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/libgcc_eh.a:
+/usr/lib/gcc/x86_64-linux-gnu/13/libgcc_eh.a:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/crtendS.o:
+/usr/lib/gcc/x86_64-linux-gnu/13/crtendS.o:
 
-/usr/lib/gcc/x86_64-pc-linux-gnu/15.2.1/../../../../lib/crtn.o:
-
-/usr/lib32/libGLdispatch.so.0:
-
-/usr/lib/libGLdispatch.so.0:
-
-/usr/lib32/libX11.so.6:
-
-/usr/lib/libX11.so.6:
-
-/usr/lib32/libxcb.so.1:
-
-/usr/lib/libxcb.so.1:
-
-/usr/lib32/libXau.so.6:
-
-/usr/lib/libXau.so.6:
-
-/usr/lib32/libXdmcp.so.6:
-
-/usr/lib/libXdmcp.so.6:
+/usr/lib/gcc/x86_64-linux-gnu/13/../../../x86_64-linux-gnu/crtn.o:

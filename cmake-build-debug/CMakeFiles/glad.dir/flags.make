@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/taj/CLionProjects/openGL_1/libs/glfw/include/GLFW -I/home/taj/CLionProjects/openGL_1/libs/glad/include
+C_INCLUDES = -I"/home/doominik/security copy/openGL_1/libs/glfw/include/GLFW" -I"/home/doominik/security copy/openGL_1/libs/glad/include"
 
 C_FLAGS = -g -fdiagnostics-color=always
 

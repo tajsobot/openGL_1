@@ -4,7 +4,7 @@
 # compile C with /usr/bin/cc
 C_DEFINES = -DHAVE_MEMFD_CREATE -D_DEFAULT_SOURCE -D_GLFW_WAYLAND -D_GLFW_X11
 
-C_INCLUDES = -I/home/taj/CLionProjects/openGL_1/libs/glfw/include -I/home/taj/CLionProjects/openGL_1/libs/glfw/src -I/home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/src
+C_INCLUDES = -I"/home/doominik/security copy/openGL_1/libs/glfw/include" -I"/home/doominik/security copy/openGL_1/libs/glfw/src" -I"/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw/src"
 
 C_FLAGS = -g -std=c99 -fPIC -fdiagnostics-color=always -Wall
 

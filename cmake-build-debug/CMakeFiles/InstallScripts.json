@@ -1,10 +1,10 @@
 {
 	"InstallScripts" : 
 	[
-		"/home/taj/CLionProjects/openGL_1/cmake-build-debug/cmake_install.cmake",
-		"/home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/cmake_install.cmake",
-		"/home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/src/cmake_install.cmake",
-		"/home/taj/CLionProjects/openGL_1/cmake-build-debug/libs/glfw/docs/cmake_install.cmake"
+		"/home/doominik/security copy/openGL_1/cmake-build-debug/cmake_install.cmake",
+		"/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw/cmake_install.cmake",
+		"/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw/src/cmake_install.cmake",
+		"/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw/docs/cmake_install.cmake"
 	],
 	"Parallel" : false
 }
