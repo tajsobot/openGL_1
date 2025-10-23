@@ -5,7 +5,7 @@
 #include <string>
 #include <fstream>
 #include <sstream>
-#include <thread> // For simulating a game loop
+#include <thread>
 
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
@@ -18,25 +18,19 @@ void toggleFullscreen(GLFWwindow* window) {
     fullscreen = !fullscreen;
 
     if (fullscreen) {
-        // save window position and size
         glfwGetWindowPos(window, &windowedX, &windowedY);
         glfwGetWindowSize(window, &windowedWidth, &windowedHeight);
 
-        // get primary monitor and video mode
         GLFWmonitor* monitor = glfwGetPrimaryMonitor();
         const GLFWvidmode* mode = glfwGetVideoMode(monitor);
 
-        // go fullscreen
+        //set fullscreen
         glfwSetWindowMonitor(window, monitor, 0, 0, mode->width, mode->height, mode->refreshRate);
     } else {
-        // back to windowed mode
         glfwSetWindowMonitor(window, nullptr, windowedX, windowedY, windowedWidth, windowedHeight, 0);
     }
 }
 
-
-
-// Function to read a file's content
 std::string readShaderFile(const std::string& filepath) {
     std::ifstream file(filepath);
     if (!file.is_open()) {
@@ -48,7 +42,6 @@ std::string readShaderFile(const std::string& filepath) {
     return buffer.str();
 }
 
-// Function to compile a shader
 unsigned int compileShader(unsigned int type, const std::string& source) {
     unsigned int shader = glCreateShader(type);
     const char* src = source.c_str();
@@ -66,7 +59,6 @@ unsigned int compileShader(unsigned int type, const std::string& source) {
     return shader;
 }
 
-// Function to create a shader program
 unsigned int createShaderProgram(const std::string& vertexSource, const std::string& fragmentSource) {
     unsigned int vertexShader = compileShader(GL_VERTEX_SHADER, vertexSource);
     unsigned int fragmentShader = compileShader(GL_FRAGMENT_SHADER, fragmentSource);
@@ -91,10 +83,10 @@ unsigned int createShaderProgram(const std::string& vertexSource, const std::str
     return shaderProgram;
 }
 
-// Global variables for mouse position
+// global  mouse position
 double mouseX = 0.0, mouseY = 0.0;
 
-// GLFW callback to track mouse movement
+// callback mouse movement
 void mouse_callback(GLFWwindow* window, double xpos, double ypos) {
     mouseX = xpos;
     mouseY = ypos;
@@ -136,24 +128,21 @@ int main() {
     glfwSetCursorPosCallback(window, mouse_callback);
 
     // Load shaders
-    // std::string fragmentShaderSource = readShaderFile(R"(..\src\my_marcher.glsl)");
-    std::string fragmentShaderSource4 = readShaderFile(R"(../src/fragment_shader4.glsl)"); //spin
-    std::string fragmentShaderSource3 = readShaderFile(R"(../src/fragment_shader3.glsl)"); //reflections
-    std::string fragmentShaderSource2 = readShaderFile(R"(../src/fragment_shader2.glsl)"); //biferkacijski prvi
-    std::string fragmentShaderSource1 = readShaderFile(R"(../src/fragment_shader1.glsl)"); //biferkacijski bolsi
+    std::string vertexShaderSource = readShaderFile("../src/vertex_shader.glsl");
 
-    std::string vertexShaderSource = readShaderFile(R"(../src/vertex_shader.glsl)");
+    std::vector<std::string> fragmentFilepaths = {
+        readShaderFile("../src/fragment_shader1.glsl"),
+        readShaderFile("../src/fragment_shader2.glsl"),
+        readShaderFile("../src/fragment_shader3.glsl"),
+        readShaderFile("../src/fragment_shader4.glsl")
+    };
 
-    if (fragmentShaderSource1.empty() || fragmentShaderSource2.empty() ||vertexShaderSource.empty()) {
-        std::cerr << "ERROR: Shader source is empty. Check file paths!" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
-
-    unsigned int shaderProgram1 = createShaderProgram(vertexShaderSource, fragmentShaderSource1);
-    unsigned int shaderProgram2 = createShaderProgram(vertexShaderSource, fragmentShaderSource2);
-    unsigned int shaderProgram3 = createShaderProgram(vertexShaderSource, fragmentShaderSource3);
-    unsigned int shaderProgram4 = createShaderProgram(vertexShaderSource, fragmentShaderSource4);
+    std::vector<unsigned int> shaderPrograms ={
+        createShaderProgram(vertexShaderSource, fragmentFilepaths[0]),
+        createShaderProgram(vertexShaderSource, fragmentFilepaths[1]),
+        createShaderProgram(vertexShaderSource, fragmentFilepaths[2]),
+        createShaderProgram(vertexShaderSource, fragmentFilepaths[3])
+    };
 
     // Set up the VAO and VBO for a full-screen quad
     float vertices[] = {
@@ -165,7 +154,7 @@ int main() {
     };
     unsigned int indices[] = {
         0, 1, 2, // First triangle
-        2, 3, 0  // Second triangle
+        2, 3, 0,  // Second triangle
     };
 
     unsigned int VAO, VBO, EBO;
@@ -202,25 +191,25 @@ int main() {
     float deltaTime = 0.0f;
     float timeCountTo1 = 0.0f;
 
-    unsigned int activeProgram = shaderProgram1;
+    unsigned int activeProgram = shaderPrograms[0];
     int frameCount = 0;
     // Main loop
     while (!glfwWindowShouldClose(window)) {
 
         if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
-            activeProgram = shaderProgram1; // Switch to first shader
+            activeProgram = shaderPrograms[0]; // Switch to first shader
         }
         if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
-            activeProgram = shaderProgram2; // Switch to second shader
+            activeProgram = shaderPrograms[1]; // Switch to second shader
         }
         if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
-            activeProgram = shaderProgram3; // Switch to second shader
+            activeProgram = shaderPrograms[2]; // Switch to second shader
         }
         if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
-            activeProgram = shaderProgram4; // Switch to second shader
+            activeProgram = shaderPrograms[3]; // Switch to second shader
         }
-            static bool pressed = false;
 
+        static bool pressed = false;
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
             if (!pressed) {
                 toggleFullscreen(window);

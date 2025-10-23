@@ -15,10 +15,13 @@ int juliaSet(vec2 c, vec2 constant) {
     vec2 z = c;
 
     for (recursionCount = 0; recursionCount < RECURSION_LIMIT; recursionCount++) {
-//      z = vec2( z.x * z.x - z.y * z.y, 2.0 * (sin(u_time* 3) * sin(u_time * 3)*1 + 0.5) * z.x * z.y) + constant;
-        z = vec2( z.x * z.x - z.y * z.y ,  ((u_mouse.x/u_resolution.x + 3.0) * 0.53) * z.x * z.y) + constant;
+//      z = vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y) + constant;
+//        z = vec2( z.x * z.x - z.y * z.y ,  ((u_mouse.x/u_resolution.x + 3.0) * 0.53) * z.x * z.y) + constant;
+        float fi = atan(z.x/z.y);
+        float d = sqrt(z.x * z.x + z.y * z.y );
+        z = vec2(pow(d, u_mouse.x/u_resolution.x * 3.0) * cos(z.x * fi), pow(d, u_mouse.x/u_resolution.x * 3.0) * cos(z.x * fi)) + constant;
 
-        if (length(z) > 2.0) {
+        if (length(z) > 0.5 + (u_mouse.y/u_resolution.y)) {
             break;
         }
     }
@@ -27,6 +30,7 @@ int juliaSet(vec2 c, vec2 constant) {
 }
 
 void main() {
+    vec2 mouse_norm = u_mouse / u_resolution;
     // Normalized pixel coordinates (-aspect to aspect, -1 to 1)
     vec2 uv = gl_FragCoord.xy / u_resolution;
     uv = (uv - 0.5) * 2.0;
@@ -46,7 +50,7 @@ void main() {
     vec2(0.5, -0.5)
     );
 
-//    int constantIndex = int(mod(u_time * 3.5, 6.0));
+//  int constantIndex = int(mod(u_time * 3.5, 6.0));
     vec2 juliaConstant = constants[0];
 
     // Rotation based on time
@@ -73,8 +77,8 @@ void main() {
     col.rgb *= 5000.0 * saturation * totalSaturation;
 
     // Mouse interaction - zoom
-    vec2 mouse_norm = u_mouse / u_resolution;
-    float zoom = (mouse_norm.y * 0.1); // Mouse Y controls zoom (0.0 to 2.0)
+//    float zoom = 2 - smoothstep(0.0, 2.0, mouse_norm.y); // Mouse Y controls zoom (0.0 to 2.0)
+    float zoom = 0.1;
     col.rgb *= zoom;
 
     FragColor = vec4(clamp(col.rgb, 0.0, 1.0), 1.0);
