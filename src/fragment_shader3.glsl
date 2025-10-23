@@ -6,7 +6,7 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 
-#define RECURSION_LIMIT 1000
+#define RECURSION_LIMIT 3000
 #define PI 3.141592653589793238
 
 // Method for the mathematical construction of the julia set
@@ -15,13 +15,11 @@ int juliaSet(vec2 c, vec2 constant) {
     vec2 z = c;
 
     for (recursionCount = 0; recursionCount < RECURSION_LIMIT; recursionCount++) {
+// default:
 //      z = vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y) + constant;
-//        z = vec2( z.x * z.x - z.y * z.y ,  ((u_mouse.x/u_resolution.x + 3.0) * 0.53) * z.x * z.y) + constant;
-        float fi = atan(z.x/z.y);
-        float d = sqrt(z.x * z.x + z.y * z.y );
-        z = vec2(pow(d, u_mouse.x/u_resolution.x * 3.0) * cos(z.x * fi), pow(d, u_mouse.x/u_resolution.x * 3.0) * cos(z.x * fi)) + constant;
+        z = vec2( z.x * z.x - z.y * z.y , ((u_mouse.x/u_resolution.x + 3.0) * 0.53) * z.x * z.y) + constant;
 
-        if (length(z) > 0.5 + (u_mouse.y/u_resolution.y)) {
+        if (length(z) > 0.3 + (u_mouse.y/u_resolution.y)*2) {
             break;
         }
     }
@@ -29,10 +27,11 @@ int juliaSet(vec2 c, vec2 constant) {
     return recursionCount;
 }
 
-void main() {
+vec3 pixelOperation(float offset_x, float offset_y){
     vec2 mouse_norm = u_mouse / u_resolution;
     // Normalized pixel coordinates (-aspect to aspect, -1 to 1)
     vec2 uv = gl_FragCoord.xy / u_resolution;
+    uv += vec2(offset_x, offset_y) / u_resolution;
     uv = (uv - 0.5) * 2.0;
     uv.x *= u_resolution.x / u_resolution.y; // aspect ratio
 
@@ -50,7 +49,7 @@ void main() {
     vec2(0.5, -0.5)
     );
 
-//  int constantIndex = int(mod(u_time * 3.5, 6.0));
+    //  int constantIndex = int(mod(u_time * 3.5, 6.0));
     vec2 juliaConstant = constants[0];
 
     // Rotation based on time
@@ -76,10 +75,29 @@ void main() {
     col.g = smoothstep(0.0, 1.0, ff) * (-uv2.x * 0.5 + 0.3);
     col.rgb *= 5000.0 * saturation * totalSaturation;
 
-    // Mouse interaction - zoom
-//    float zoom = 2 - smoothstep(0.0, 2.0, mouse_norm.y); // Mouse Y controls zoom (0.0 to 2.0)
-    float zoom = 0.1;
+    //zoom je "fokus odzadja"
+    float zoom = 0.01;
     col.rgb *= zoom;
 
-    FragColor = vec4(clamp(col.rgb, 0.0, 1.0), 1.0);
+    return col.rgb;
 }
+
+
+void main() {
+    int subpixels = 1; // 3x3 = 9 samples per pixel
+    float subpixel_step = 1.0 / float(subpixels);
+    vec3 color_sum = vec3(0.0);
+
+    for (int i = 0; i < subpixels; i++) {
+        for (int j = 0; j < subpixels; j++) {
+            float offset_x = (float(i) + 0.5) * subpixel_step;
+            float offset_y = (float(j) + 0.5) * subpixel_step;
+            color_sum += pixelOperation(offset_x, offset_y);
+        }
+    }
+
+    vec3 final_color = color_sum / float(subpixels * subpixels);
+
+    FragColor = vec4(clamp(color_sum.rgb, 0.0, 1.0), 1.0);
+}
+

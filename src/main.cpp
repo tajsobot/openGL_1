@@ -209,6 +209,10 @@ int main() {
             activeProgram = shaderPrograms[3]; // Switch to second shader
         }
 
+        if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+          std::cout << mouseX/width << " " << (height - mouseY)/height<< std::endl;
+        }
+
         static bool pressed = false;
         if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS) {
             if (!pressed) {
@@ -218,6 +222,8 @@ int main() {
         } else {
             pressed = false;
         }
+
+
 
         int width, height;
         auto currentTime = Clock::now();
