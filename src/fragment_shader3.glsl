@@ -5,7 +5,11 @@ out vec4 FragColor;
 uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
+uniform vec2 u_rat;
 
+
+/*0.128479, 0.595751
+*/
 #define RECURSION_LIMIT 1000
 #define PI 3.141592653589793238
 
@@ -49,13 +53,14 @@ int juliaSet(vec2 c, vec2 constant) {
     vec2 z = c;
 
     for (recursionCount = 0; recursionCount < RECURSION_LIMIT; recursionCount++) {
-     //z = vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y) + c+(u_mouse/u_resolution-vec2(0.5,0.5))*2.0;
-        z = vec2(
+     z =vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y)+vec2(u_rat.x,u_rat.y)+ (u_mouse/u_resolution-vec2(0.5,0.5))*2.0;
+
+       /* z = vec2(
         z.x*z.x*z.x*z.x*z.x*z.x - 15.0*z.x*z.x*z.x*z.x*z.y*z.y
         + 15.0*z.x*z.x*z.y*z.y*z.y*z.y - z.y*z.y*z.y*z.y*z.y*z.y,
         6.0*z.x*z.x*z.x*z.x*z.x*z.y - 20.0*z.x*z.x*z.x*z.y*z.y*z.y
         + 6.0*z.x*z.y*z.y*z.y*z.y*z.y
-        )+ (u_mouse/u_resolution-vec2(0.5,0.5));//susy
+        )+ (u_mouse/u_resolution-vec2(0.5,0.5))*2;*///susy
        // z = vec2( pow(z.x,3)-3*z.x*pow(z.y,2) ,3*pow(z.x,2)*z.y-pow(z.y,3) )+c + (u_mouse/u_resolution-vec2(0.5,0.5))*2.0;
      //  z = vec2( pow(z.x,4)-6*z.pow(z.x,2)*pow(z.y,2)+pow(z.y,4) ,(4*pow(z.x,3)*z.y-4*pow(z.y,3)*z.x) )+c + (u_mouse/u_resolution-vec2(0.5,0.5))*2.0;
 

@@ -6,7 +6,8 @@
 #include <fstream>
 #include <sstream>
 #include <thread>
-
+float centerx=0.0;
+float centery=0.0;
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
@@ -218,6 +219,12 @@ int main() {
         } else {
             pressed = false;
         }
+        if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+            std::cout << (mouseX/width )<< ", " <<( (height - mouseY)/height)<< std::endl;
+            centerx=(mouseX/width );
+            centery=( (height - mouseY)/height);
+        }
+
 
         int width, height;
         auto currentTime = Clock::now();
@@ -234,6 +241,7 @@ int main() {
         glUniform1f(glGetUniformLocation(activeProgram, "u_time"), time1);
         glUniform2f(glGetUniformLocation(activeProgram, "u_resolution"), width, height);
         glUniform2f(glGetUniformLocation(activeProgram, "u_mouse"), mouseX, height - mouseY); // Flip Y-axis
+        glUniform2f(glGetUniformLocation(activeProgram, "u_rat"), centerx, centery); // Flip Y-axis
 
         glBindVertexArray(VAO);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, nullptr);
