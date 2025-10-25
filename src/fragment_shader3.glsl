@@ -17,7 +17,7 @@ int juliaSet(vec2 c, vec2 constant) {
     for (recursionCount = 0; recursionCount < RECURSION_LIMIT; recursionCount++) {
 // default:
 //      z = vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y) + constant;
-        z = vec2( z.x * z.x - z.y * z.y , ((u_mouse.x/u_resolution.x + 3.0) * 0.53) * z.x * z.y) + constant;
+        z = vec2( z.x * z.x - z.y * z.y , ((u_mouse.x/u_resolution.x + 3.0) * 0.53) *  z.x * z.y) + constant;
 
         if (length(z) > 0.3 + (u_mouse.y/u_resolution.y)*2) {
             break;
@@ -76,16 +76,15 @@ vec3 pixelOperation(float offset_x, float offset_y){
     col.rgb *= 5000.0 * saturation * totalSaturation;
 
     //zoom je "fokus odzadja"
-    float zoom = 0.01;
+    float zoom = 0.1;
     col.rgb *= zoom;
 
     return col.rgb;
 }
 
-
 void main() {
-    int subpixels = 1; // 3x3 = 9 samples per pixel
-    float subpixel_step = 1.0 / float(subpixels);
+    int subpixels = 3; // 3x3 = 9 samples per pixel
+    float subpixel_step = 2.0 / float(subpixels);
     vec3 color_sum = vec3(0.0);
 
     for (int i = 0; i < subpixels; i++) {

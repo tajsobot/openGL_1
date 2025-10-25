@@ -124,10 +124,10 @@ int main() {
         return -1;
     }
 
-    // Set up mouse callback
+    // mouse callback
     glfwSetCursorPosCallback(window, mouse_callback);
 
-    // Load shaders
+    // load shaders
     std::string vertexShaderSource = readShaderFile("../src/vertex_shader.glsl");
 
     std::vector<std::string> fragmentFilepaths = {
@@ -193,22 +193,21 @@ int main() {
 
     unsigned int activeProgram = shaderPrograms[0];
     int frameCount = 0;
-    // Main loop
+    // shader switching 1-4
     while (!glfwWindowShouldClose(window)) {
 
         if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[0]; // Switch to first shader
+            activeProgram = shaderPrograms[0];
         }
         if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[1]; // Switch to second shader
+            activeProgram = shaderPrograms[1];
         }
         if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[2]; // Switch to second shader
+            activeProgram = shaderPrograms[2];
         }
         if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[3]; // Switch to second shader
+            activeProgram = shaderPrograms[3];
         }
-
         if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
           std::cout << mouseX/width << " " << (height - mouseY)/height<< std::endl;
         }
@@ -222,8 +221,6 @@ int main() {
         } else {
             pressed = false;
         }
-
-
 
         int width, height;
         auto currentTime = Clock::now();

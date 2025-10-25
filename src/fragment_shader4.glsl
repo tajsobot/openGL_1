@@ -39,7 +39,7 @@ void main() {
 //                x = r * x * (1.0 - x);
 //                if (k > drawTime) {
 //                    if (abs(x - sub_uv.y) < 0.00015) {
-////                        color_sum += vec3(0.6 * animT, 0.6 * animT, 2.3 *animT);
+//                        color_sum += vec3(0.6 * animT, 0.6 * animT, 2.3 *animT);
 //                        color_sum += vec3(0.6, 0.6, 1.1);
 //
 //                        break;
