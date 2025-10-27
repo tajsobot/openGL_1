@@ -6,6 +6,7 @@ uniform vec2 u_resolution;
 uniform vec2 u_mouse;
 uniform float u_time;
 uniform vec2 u_rat;
+uniform float u_sens;
 
 
 /*0.128479, 0.595751
@@ -53,14 +54,14 @@ int juliaSet(vec2 c, vec2 constant) {
     vec2 z = c;
 
     for (recursionCount = 0; recursionCount < RECURSION_LIMIT; recursionCount++) {
-     z =vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y)+(u_rat/u_resolution)+ (u_mouse/u_resolution);
+     //  z =vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y)+c+(u_rat/u_resolution)*2+ ((u_mouse)/u_resolution-vec2(0.5,0.5))*u_sens;
 
-       /* z = vec2(
+       z = vec2(
         z.x*z.x*z.x*z.x*z.x*z.x - 15.0*z.x*z.x*z.x*z.x*z.y*z.y
         + 15.0*z.x*z.x*z.y*z.y*z.y*z.y - z.y*z.y*z.y*z.y*z.y*z.y,
         6.0*z.x*z.x*z.x*z.x*z.x*z.y - 20.0*z.x*z.x*z.x*z.y*z.y*z.y
         + 6.0*z.x*z.y*z.y*z.y*z.y*z.y
-        )+ (u_mouse/u_resolution);//susy*/
+        )+(u_rat/u_resolution)*2+ ((u_mouse)/u_resolution-vec2(0.5,0.5))*u_sens;//susy*/
        // z = vec2( pow(z.x,3)-3*z.x*pow(z.y,2) ,3*pow(z.x,2)*z.y-pow(z.y,3) )+c + (u_mouse/u_resolution-vec2(0.5,0.5))*2.0;
      //  z = vec2( pow(z.x,4)-6*z.pow(z.x,2)*pow(z.y,2)+pow(z.y,4) ,(4*pow(z.x,3)*z.y-4*pow(z.y,3)*z.x) )+c + (u_mouse/u_resolution-vec2(0.5,0.5))*2.0;
 

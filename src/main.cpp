@@ -8,6 +8,7 @@
 #include <thread>
 float centerx=0.0;
 float centery=0.0;
+float sens=2.0;
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
@@ -236,9 +237,15 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(activeProgram);
-
+        if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+            std::cout << (mouseX)<< ", " <<( (height - mouseY))<< std::endl;
+            centerx=(mouseX)-width/2;
+            centery=( (height - mouseY))-height/2;
+            sens/=1.1;
+        }
         // Pass uniforms
         glUniform1f(glGetUniformLocation(activeProgram, "u_time"), time1);
+        glUniform1f(glGetUniformLocation(activeProgram, "u_sens"), sens);
         glUniform2f(glGetUniformLocation(activeProgram, "u_resolution"), width, height);
         glUniform2f(glGetUniformLocation(activeProgram, "u_mouse"), mouseX, height - mouseY); // Flip Y-axis
         glUniform2f(glGetUniformLocation(activeProgram, "u_rat"), centerx, centery); // Flip Y-axis
