@@ -220,9 +220,9 @@ int main() {
             pressed = false;
         }
         if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
-            std::cout << (mouseX/width )<< ", " <<( (height - mouseY)/height)<< std::endl;
-            centerx=(mouseX);
-            centery=( (height - mouseY));
+            std::cout << (mouseX)<< ", " <<( (height - mouseY))<< std::endl;
+            centerx=-(mouseX);
+            centery=-( (height - mouseY));
         }
 
 
