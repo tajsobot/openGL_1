@@ -221,8 +221,8 @@ int main() {
         }
         if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
             std::cout << (mouseX/width )<< ", " <<( (height - mouseY)/height)<< std::endl;
-            centerx=(mouseX/width );
-            centery=( (height - mouseY)/height);
+            centerx=(mouseX);
+            centery=( (height - mouseY));
         }
 
 
