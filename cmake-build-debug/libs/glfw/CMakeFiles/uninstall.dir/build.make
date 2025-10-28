@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /snap/clion/385/bin/cmake/linux/x64/bin/cmake
+CMAKE_COMMAND = /snap/clion/393/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /snap/clion/385/bin/cmake/linux/x64/bin/cmake -E rm -f
+RM = /snap/clion/393/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -67,7 +67,7 @@ include libs/glfw/CMakeFiles/uninstall.dir/compiler_depend.make
 include libs/glfw/CMakeFiles/uninstall.dir/progress.make
 
 libs/glfw/CMakeFiles/uninstall:
-	cd "/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw" && /snap/clion/385/bin/cmake/linux/x64/bin/cmake -P /home/doominik/security\ copy/openGL_1/cmake-build-debug/libs/glfw/cmake_uninstall.cmake
+	cd "/home/doominik/security copy/openGL_1/cmake-build-debug/libs/glfw" && /snap/clion/393/bin/cmake/linux/x64/bin/cmake -P /home/doominik/security\ copy/openGL_1/cmake-build-debug/libs/glfw/cmake_uninstall.cmake
 
 libs/glfw/CMakeFiles/uninstall.dir/codegen:
 .PHONY : libs/glfw/CMakeFiles/uninstall.dir/codegen
