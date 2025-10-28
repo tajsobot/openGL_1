@@ -8,7 +8,8 @@
 #include <thread>
 float centerx=0.0;
 float centery=0.0;
-float sens=2.0;
+float sens=3.0;
+static bool key1Pressed = false;
 void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
@@ -220,11 +221,11 @@ int main() {
         } else {
             pressed = false;
         }
-        if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+        /*if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
             std::cout << (mouseX)<< ", " <<( (height - mouseY))<< std::endl;
             centerx=-(mouseX);
             centery=-( (height - mouseY));
-        }
+        }*/
 
 
         int width, height;
@@ -237,12 +238,20 @@ int main() {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(activeProgram);
-        if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
-            std::cout << (mouseX)<< ", " <<( (height - mouseY))<< std::endl;
-            centerx=(mouseX)-width/2;
-            centery=( (height - mouseY))-height/2;
-            sens/=1.1;
+        if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS && !key1Pressed) {
+            // Key was just pressed
+            std::cout << (mouseX) << ", " << (height - mouseY) << std::endl;
+            centerx += ((mouseX) - width/2 )*sens;
+            centery += sens*((height - mouseY) - height/2 );
+            sens /= 2;
+            key1Pressed = true;
         }
+        else if (glfwGetKey(window, GLFW_KEY_P) == GLFW_RELEASE && key1Pressed) {
+            // Key was just released
+            std::cout << "Key 1 released!" << std::endl;
+            key1Pressed = false;
+        }
+
         // Pass uniforms
         glUniform1f(glGetUniformLocation(activeProgram, "u_time"), time1);
         glUniform1f(glGetUniformLocation(activeProgram, "u_sens"), sens);
