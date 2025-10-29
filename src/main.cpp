@@ -243,7 +243,7 @@ int main() {
             std::cout << (mouseX) << ", " << (height - mouseY) << std::endl;
             centerx += ((mouseX) - width/2 )*sens;
             centery += sens*((height - mouseY) - height/2 );
-            sens /= 2;
+            sens /= 10;
             key1Pressed = true;
         }
         else if (glfwGetKey(window, GLFW_KEY_P) == GLFW_RELEASE && key1Pressed) {
