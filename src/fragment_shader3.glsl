@@ -14,39 +14,6 @@ uniform float u_sens;
 #define RECURSION_LIMIT 1000
 #define PI 3.141592653589793238
 
-int binomial(int n, int k) {
-    if (k < 0 || k > n) return 0;
-    if (k == 0 || k == n) return 1;
-    int res = 1;
-    for (int i = 1; i <= k; i++) {
-        res = res * (n - (k - i)) / i;
-    }
-    return res;
-}
-vec2 imaginaryPower(vec2 susy,float retar){
-    vec2 box = vec2(0,0);
-    for(float i=0;i<retar;i++){
-        float temp=pow(box.x,retar-i)*pow(box.y,i);
-        // float C=binomial( retar, i);
-        float C=float(binomial(int(retar),int(i)));
-        // box+=vec2((i%2)*temp,((i+1)%2)*temp)
-        /*switch (val) {
-            case 0.0://CANCER I HAJT IT
-            box.x+=C*temp;
-            break;
-            case 1.0:
-            box.y+=C*temp;
-            break;
-            case 2.0:
-            box.x-=C*temp;
-            break;
-            case 3.0:
-            box.y-=C*temp;
-            break;
-        }*/
-    }
-    return box;
-}
 
 // Method for the mathematical construction of the julia set
 int juliaSet(vec2 c, vec2 constant) {
@@ -54,7 +21,7 @@ int juliaSet(vec2 c, vec2 constant) {
     vec2 z = c;
 
     for (recursionCount = 0; recursionCount < RECURSION_LIMIT; recursionCount++) {
-     //  z =vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y)+c+(u_rat/u_resolution)*2+ ((u_mouse)/u_resolution-vec2(0.5,0.5))*u_sens;
+   //   z =vec2( z.x * z.x - z.y * z.y, 2.0 * z.x * z.y)+(u_rat/u_resolution)+ ((u_mouse)/u_resolution-vec2(0.5,0.5))*u_sens;
 
        z = vec2(
         z.x*z.x*z.x*z.x*z.x*z.x - 15.0*z.x*z.x*z.x*z.x*z.y*z.y
