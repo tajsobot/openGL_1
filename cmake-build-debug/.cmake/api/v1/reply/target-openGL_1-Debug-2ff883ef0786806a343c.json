@@ -22,7 +22,7 @@
 		[
 			"CMakeLists.txt",
 			"libs/glfw/src/CMakeLists.txt",
-			"/usr/share/cmake/Modules/FindOpenGL.cmake"
+			"/home/taj/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/share/cmake-4.0/Modules/FindOpenGL.cmake"
 		],
 		"nodes" : 
 		[

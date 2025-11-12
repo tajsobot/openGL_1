@@ -44,10 +44,10 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /bin/cmake
+CMAKE_COMMAND = /home/taj/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake
 
 # The command to remove a file.
-RM = /bin/cmake -E rm -f
+RM = /home/taj/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
@@ -68,7 +68,7 @@ include libs/glfw/src/CMakeFiles/update_mappings.dir/progress.make
 
 libs/glfw/src/CMakeFiles/update_mappings:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --blue --bold --progress-dir=/home/taj/CLionProjects/openGL_1/cmake-build-debug/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Updating gamepad mappings from upstream repository"
-	cd /home/taj/CLionProjects/openGL_1/libs/glfw/src && /bin/cmake -P /home/taj/CLionProjects/openGL_1/libs/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
+	cd /home/taj/CLionProjects/openGL_1/libs/glfw/src && /home/taj/.local/share/JetBrains/Toolbox/apps/clion/bin/cmake/linux/x64/bin/cmake -P /home/taj/CLionProjects/openGL_1/libs/glfw/CMake/GenerateMappings.cmake mappings.h.in mappings.h
 
 libs/glfw/src/CMakeFiles/update_mappings.dir/codegen:
 .PHONY : libs/glfw/src/CMakeFiles/update_mappings.dir/codegen

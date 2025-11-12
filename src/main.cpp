@@ -134,15 +134,19 @@ int main() {
         readShaderFile("../src/fragment_shader1.glsl"),
         readShaderFile("../src/fragment_shader2.glsl"),
         readShaderFile("../src/fragment_shader3.glsl"),
-        readShaderFile("../src/fragment_shader4.glsl")
+        readShaderFile("../src/fragment_shader4.glsl"),
+        readShaderFile("../src/fragment_shader5.glsl")
+
     };
 
     std::vector<unsigned int> shaderPrograms ={
         createShaderProgram(vertexShaderSource, fragmentFilepaths[0]),
         createShaderProgram(vertexShaderSource, fragmentFilepaths[1]),
         createShaderProgram(vertexShaderSource, fragmentFilepaths[2]),
-        createShaderProgram(vertexShaderSource, fragmentFilepaths[3])
+        createShaderProgram(vertexShaderSource, fragmentFilepaths[3]),
+        createShaderProgram(vertexShaderSource, fragmentFilepaths[4])
     };
+
 
     // Set up the VAO and VBO for a full-screen quad
     float vertices[] = {
@@ -191,23 +195,19 @@ int main() {
     float deltaTime = 0.0f;
     float timeCountTo1 = 0.0f;
 
-    unsigned int activeProgram = shaderPrograms[0];
+    unsigned int activeProgram = shaderPrograms[4];
     int frameCount = 0;
     // shader switching 1-4
     while (!glfwWindowShouldClose(window)) {
 
-        if (glfwGetKey(window, GLFW_KEY_1) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[0];
+        //izjemno
+        for (int i = 0; i < 9; ++i) {
+            if (glfwGetKey(window, GLFW_KEY_1 +i) == GLFW_PRESS) {
+              activeProgram = shaderPrograms[i];
+            }
         }
-        if (glfwGetKey(window, GLFW_KEY_2) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[1];
-        }
-        if (glfwGetKey(window, GLFW_KEY_3) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[2];
-        }
-        if (glfwGetKey(window, GLFW_KEY_4) == GLFW_PRESS) {
-            activeProgram = shaderPrograms[3];
-        }
+
+
         if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
           std::cout << mouseX/width << " " << (height - mouseY)/height<< std::endl;
         }

@@ -331,11 +331,6 @@ openGL_1: /usr/lib/Scrt1.o \
   /usr/lib/libmvec.so.1 \
   /usr/lib/librt.a \
   /usr/lib/libxcb.so.1 \
-  /usr/lib32/libGLdispatch.so.0 \
-  /usr/lib32/libX11.so.6 \
-  /usr/lib32/libXau.so.6 \
-  /usr/lib32/libXdmcp.so.6 \
-  /usr/lib32/libxcb.so.1 \
   CMakeFiles/openGL_1.dir/src/main.cpp.o \
   libglad.a \
   libs/glfw/src/libglfw3.a
@@ -344,12 +339,6 @@ openGL_1: /usr/lib/Scrt1.o \
 libs/glfw/src/libglfw3.a:
 
 libglad.a:
-
-/usr/lib32/libXdmcp.so.6:
-
-/usr/lib32/libXau.so.6:
-
-/usr/lib32/libX11.so.6:
 
 /usr/lib/libmvec.so.1:
 
@@ -620,8 +609,6 @@ CMakeFiles/openGL_1.dir/src/main.cpp.o:
 /usr/include/bits/time64.h:
 
 /usr/include/bits/stdlib-float.h:
-
-/usr/lib32/libxcb.so.1:
 
 /usr/include/asm/unistd.h:
 
@@ -898,8 +885,6 @@ CMakeFiles/openGL_1.dir/src/main.cpp.o:
 /usr/include/bits/typesizes.h:
 
 /usr/include/c++/15.2.1/bits/string_view.tcc:
-
-/usr/lib32/libGLdispatch.so.0:
 
 /usr/include/c++/15.2.1/bits/unicode-data.h:
 
